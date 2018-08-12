@@ -40,7 +40,7 @@ object LogPageVeiwCount {
       val host=new URL( x._1).getHost
       (host,x._2)
     }).reduceByKey(_+_)
-    println(count.collect().toBuffer)
+   println(count.collect().toBuffer )
     for(a<-arr){
       val rdd3=hostAndUrlAndCount.filter(a==_._1)
      // println(rdd3.collect().toBuffer)
