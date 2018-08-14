@@ -23,5 +23,6 @@ object CusetomSort {
     println(rdd2.collect.toBuffer)
     sc.stop()
   }
+
 }
 case class Girl(faceValue:Int,age:Int) extends Serializable

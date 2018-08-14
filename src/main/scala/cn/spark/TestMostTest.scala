@@ -34,9 +34,18 @@ object TestMostTest {
     //    sc.stop()
 //    val rdd1=sc.parallelize(List(1,2,3,4,5,6),2)
 //     rdd1.foreachPartition(x=>println(x.reduce(_+_)))
-    val rdd1=sc.parallelize(List(("e1"),("a1"),("b1"),("c1"),("d1")))
-    val rdd2=rdd1.keyBy(_(0))
-    println(rdd2.collect.toBuffer);
+//    val rdd1=sc.parallelize(List(("e1"),("a1"),("b1"),("c1"),("d1")))
+//    val rdd2=rdd1.keyBy(_(0))
+//val rdd2 = sc.parallelize(1 to 10, 10)
+//    val rdd1= rdd2.coalesce(2, false)
+//    //rdd1.partitions.length
+//    println( rdd1.partitions.length);
+val a = sc.parallelize(List("dog", "salmon", "salmon", "rat", "elephant"), 3)
+    val b = a.keyBy(_.length)
+    val c = sc.parallelize(List("dog","cat","gnu","salmon","rabbit","turkey","wolf","bear","bee"), 3)
+    val d = c.keyBy(_.length)
+    val ce=b.join(d)
+    println( ce.collect().toBuffer);
   }
 }
 
